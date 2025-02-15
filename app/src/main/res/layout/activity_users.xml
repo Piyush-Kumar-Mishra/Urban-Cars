@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.UsersActivity">
+
+    <fragment
+        android:id="@+id/fragmentContainerView2"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/user_nav_graph" />
+
+    <LinearLayout
+        android:id="@+id/llCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:padding="13dp"
+        android:background="@color/yellow"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/llItemCart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivProductImage"
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:padding="3.9dp"
+                android:src="@drawable/back_btn_img" />
+
+            <TextView
+                android:id="@+id/tvNumberOfProductCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2.6dp"
+                android:text="ITEM"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/ivShowingProductsCart"
+                android:layout_width="19.5dp"
+                android:layout_height="19.5dp"
+                android:layout_marginStart="6.5dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/back_btn_img" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llBtnNext"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Next"
+                android:textColor="#FFFFFF"
+                android:textSize="16.9sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:layout_width="19.5dp"
+                android:layout_height="19.5dp"
+                android:layout_marginStart="6.5dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/back_btn_img" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

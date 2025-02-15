@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "778371713411",
+    "project_id": "urban-cars-8f039",
+    "storage_bucket": "urban-cars-8f039.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778371713411:android:8c2007b638528f5b0c0eb6",
+        "android_client_info": {
+          "package_name": "com.example.urbancars"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOlWaQ5ez2pMqOhtW9_CP3slZ91-DGM4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
