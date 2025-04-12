@@ -1,14 +1,21 @@
 package com.example.urbancars.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.urbancars.CartInterface
+import com.example.urbancars.CartInterfaceHolder
+import com.example.urbancars.Room.CartItems
+import com.example.urbancars.adapters.AdaptorCartItems
 import com.example.urbancars.databinding.ActivityUsersBinding
+import com.example.urbancars.databinding.ShowCartItemsBinding
 import com.example.urbancars.viewmodels.UserViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -16,13 +23,34 @@ import kotlinx.coroutines.withContext
 class UsersActivity : AppCompatActivity(), CartInterface {
     private lateinit var binding: ActivityUsersBinding
     private val viewModel: UserViewModel by viewModels()
+    private lateinit var cartItemsList: List<CartItems>
+    private lateinit var cartItemsAdapter: AdaptorCartItems
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityUsersBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Set the cartInterface in the singleton
+        CartInterfaceHolder.cartInterface = this
+
         getItemCount()
+        onCartClick()
+        getAllCartItems()
+        onToCartBtnClick()
+    }
+
+    private fun onToCartBtnClick() {
+        binding.moveToCart.setOnClickListener {
+            startActivity(Intent(this, PlaceOrderActivity::class.java))
+        }
+    }
+
+    private fun getAllCartItems() {
+        viewModel.getCartItems().observe(this) {
+            cartItemsList = it
+        }
     }
 
     // Fetch and display the current item count
@@ -34,6 +62,7 @@ class UsersActivity : AppCompatActivity(), CartInterface {
                 binding.tvNumberOfProductCount.text = count.toString()
             } else {
                 binding.llCart.visibility = View.GONE
+                binding.tvNumberOfProductCount.text = "0"
             }
         }
     }
@@ -61,5 +90,28 @@ class UsersActivity : AppCompatActivity(), CartInterface {
                 viewModel.fetchCartItemCount() // Update LiveData
             }
         }
+    }
+
+
+
+    private fun onCartClick() {
+        binding.llItemCart.setOnClickListener {
+            val showcartItems = ShowCartItemsBinding.inflate(LayoutInflater.from(this))
+            val showCart = BottomSheetDialog(this)
+            showCart.setContentView(showcartItems.root)
+            showcartItems.btnNext.setOnClickListener {
+                startActivity(Intent(this, PlaceOrderActivity::class.java))
+            }
+            showcartItems.tvNumberOfProductCount.text = binding.tvNumberOfProductCount.text
+            cartItemsAdapter = AdaptorCartItems()
+            showcartItems.rvProductItems.adapter = cartItemsAdapter
+            cartItemsAdapter.differ.submitList(cartItemsList)
+            showCart.show()
+        }
+    }
+
+    override fun hideCartLayout() {
+        binding.llCart.visibility = View.GONE
+        binding.tvNumberOfProductCount.text = "0"
     }
 }

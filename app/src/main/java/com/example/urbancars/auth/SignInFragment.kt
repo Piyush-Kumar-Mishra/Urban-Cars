@@ -54,11 +54,11 @@ class SignInFragment : Fragment() {
                 val len = number?.length
                 if (len == 10) {
                     binding.btnContinue.setBackgroundColor(
-                        ContextCompat.getColor(requireContext(), R.color.yellow)
+                        ContextCompat.getColor(requireContext(), R.color.blue)
                     )
                 } else {
                     binding.btnContinue.setBackgroundColor(
-                        ContextCompat.getColor(requireContext(), R.color.black)
+                        ContextCompat.getColor(requireContext(), R.color.appbcg)
                     )
                 }
             }

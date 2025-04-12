@@ -12,9 +12,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.urbancars.CartInterface
 import com.example.urbancars.R
 import com.example.urbancars.Room.CartItems
+import com.example.urbancars.Utils
 import com.example.urbancars.adapters.ProductAdaptor
 import com.example.urbancars.databinding.FragmentCategoryBinding
-import com.example.urbancars.databinding.IvProductsBinding
+import com.example.urbancars.databinding.IvItemsBinding
 import com.example.urbancars.models.Item
 import com.example.urbancars.viewmodels.UserViewModel
 import kotlinx.coroutines.Dispatchers
@@ -27,6 +28,7 @@ class CategoryFragment : Fragment() {
     private val viewModel: UserViewModel by viewModels()
     private lateinit var productAdaptor: ProductAdaptor
     private var cartInterface: CartInterface? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,7 +99,7 @@ class CategoryFragment : Fragment() {
         }
     }
 
-    private fun onAddToCart(item: Item, productBinding: IvProductsBinding) {
+    private fun onAddToCart(item: Item, productBinding: IvItemsBinding) {
         productBinding.tvAdd.visibility = View.GONE
         productBinding.llProductCount.visibility = View.VISIBLE
 
@@ -110,7 +112,9 @@ class CategoryFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.IO) {
             cartInterface?.saveItemCount(1)
             saveItemInRoom(item)
+            viewModel.updateItemCount(item, itemCount)
         }
+
     }
 
     private fun saveItemInRoom(product: Item) {
@@ -125,7 +129,8 @@ class CategoryFragment : Fragment() {
             ItemOtherDetails = product.ItemOtherDetails!!,
             ItemImages = product.ItemImagesUris?.get(0)!!,
             AdminUid = product.AdminUid!!,
-            ItemCount = product.itemCount
+            itemInStock = product.itemInStock,
+            ItemCount = product.itemCount ?: 0
         )
 
         lifecycleScope.launch(Dispatchers.IO) {
@@ -133,20 +138,28 @@ class CategoryFragment : Fragment() {
         }
     }
 
-    private fun onCartIncrement(item: Item, productBinding: IvProductsBinding) {
+    private fun onCartIncrement(item: Item, productBinding: IvItemsBinding) {
         var itemCountInc = productBinding.tvProductCount.text.toString().toInt()
         itemCountInc++
-        productBinding.tvProductCount.text = itemCountInc.toString()
-        cartInterface?.showCartUI(1)
 
-        item.itemCount = itemCountInc
-        lifecycleScope.launch(Dispatchers.IO) {
-            cartInterface?.saveItemCount(1)
-            saveItemInRoom(item)
+        if(item.itemInStock!! +1 >itemCountInc){
+            productBinding.tvProductCount.text = itemCountInc.toString()
+            cartInterface?.showCartUI(1)
+
+            item.itemCount = itemCountInc
+            lifecycleScope.launch(Dispatchers.IO) {
+                cartInterface?.saveItemCount(1)
+                saveItemInRoom(item)
+                viewModel.updateItemCount(item, itemCountInc)
+            }
         }
+        else{
+            Utils.showToast(requireContext(),"Out of Stock")
+        }
+
     }
 
-    private fun onCartDecrement(item: Item, productBinding: IvProductsBinding) {
+    private fun onCartDecrement(item: Item, productBinding: IvItemsBinding) {
         var itemCountDec = productBinding.tvProductCount.text.toString().toInt()
         itemCountDec--
         item.itemCount = itemCountDec
@@ -154,13 +167,14 @@ class CategoryFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.IO) {
             cartInterface?.saveItemCount(-1)
             saveItemInRoom(item)
+            viewModel.updateItemCount(item, itemCountDec)
         }
 
         if (itemCountDec > 0) {
             productBinding.tvProductCount.text = itemCountDec.toString()
         } else {
             lifecycleScope.launch(Dispatchers.IO) {
-                viewModel.deleteCartItem(item.ItemRandomId!!)
+                viewModel.deleteCartItem(item.ItemRandomId)
             }
             productBinding.tvAdd.visibility = View.VISIBLE
             productBinding.llProductCount.visibility = View.GONE

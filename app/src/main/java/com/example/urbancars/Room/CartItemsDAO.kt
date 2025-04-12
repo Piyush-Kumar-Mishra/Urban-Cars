@@ -21,6 +21,8 @@ interface CartItemsDAO {
     @Query("DELETE FROM CART_ITEMS WHERE ItemId = :ItemId")
     suspend fun deleteCartItem(ItemId :String)
 
+    @Query("DELETE FROM CART_ITEMS")
+    suspend fun deleteCartItems()
 }
 
 

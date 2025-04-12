@@ -139,7 +139,7 @@ class OTPFragment : Fragment() {
     }
 
     private fun verifyOTP(otp: String) {
-        val user=Users(uid=null,userPhoneNumber = userNumber)
+        val user=Users(uid=null,userPhoneNumber = userNumber, userAddress = " ")
 
         viewModel.signInWithPhoneAuthCredential(otp, userNumber.toString(),user)
         lifecycleScope.launch {
@@ -156,7 +156,7 @@ class OTPFragment : Fragment() {
 
     private fun changeStatusBarColor() {
         activity?.window?.apply {
-            statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
+            statusBarColor = ContextCompat.getColor(requireContext(), R.color.appbcg)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             }

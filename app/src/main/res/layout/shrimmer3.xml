@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    app:shimmer_auto_start="true"
+    app:shimmer_duration="1500"
+    app:shimmer_base_alpha="0.7"
+    app:shimmer_highlight_alpha="1.0">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9.10dp"
+        android:layout_marginEnd="2.6dp"
+        android:layout_marginTop="2.6dp">
+
+        <LinearLayout
+            android:id="@+id/llProductsImages"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_95sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/ll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Top row -->
+            <LinearLayout
+                android:layout_width="130dp"
+                android:layout_height="58.50dp"
+                android:weightSum="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="52.00dp"
+                    android:layout_height="52.00dp"
+                    android:background="@color/text_shadow"
+                    android:layout_margin="6.50dp"
+                    android:layout_weight="0.5" />
+
+                <View
+                    android:layout_width="52.00dp"
+                    android:background="@color/text_shadow"
+                    android:layout_height="52.00dp"
+                    android:layout_margin="6.50dp"
+                    android:layout_weight="0.5" />
+            </LinearLayout>
+
+            <!-- Bottom row -->
+            <LinearLayout
+                android:layout_width="130dp"
+                android:layout_height="58.50dp"
+                android:weightSum="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="52.00dp"
+                    android:layout_height="52.00dp"
+                    android:layout_margin="6.50dp"
+                    android:background="@color/text_shadow"
+                    android:layout_weight="0.5" />
+
+                <View
+                    android:layout_width="52.00dp"
+                    android:layout_height="52.00dp"
+                    android:layout_margin="6.50dp"
+                    android:background="@color/text_shadow"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/llProductsImages"
+            app:layout_constraintTop_toBottomOf="@id/llProductsImages">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="3.90dp"
+                android:background="@color/text_shadow"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="3.90dp"
+                android:background="@color/text_shadow" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="3.90dp"
+                android:background="@color/text_shadow"
+                />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>

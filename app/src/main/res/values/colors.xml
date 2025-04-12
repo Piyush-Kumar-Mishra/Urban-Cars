@@ -3,5 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#ffbe0b</color>
-    <color name="appbcg">#192227</color>
+    <color name="appbcg">#362c32</color>
+    <color name="appbcg2">#222222</color>
+    <color name="appbcg3">#1D2125</color>
+    <color name="blue">#651FFF</color>
+    <color name="Green">#A9FF00</color>
 </resources>

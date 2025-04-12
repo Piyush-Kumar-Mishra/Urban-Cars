@@ -13,5 +13,7 @@ data class Item(
     var ItemOtherDetails: String? = null,
     var ItemImagesUris: ArrayList<String?>?=null,
     var AdminUid: String? = null,
-    var itemCount:Int?=null,
+    var itemInStock: Int? = 0,
+    var itemCount:Int?=null
+
 )

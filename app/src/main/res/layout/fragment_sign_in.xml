@@ -13,35 +13,37 @@
 
         <TextView
             android:id="@+id/tvSignIn"
-            android:layout_width="232dp"
-            android:layout_height="33dp"
+            android:layout_width="277dp"
+            android:layout_height="46dp"
             android:text=" Welcome Aboard!"
-            android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textColor="#362c32"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintVertical_bias="0.01999998" />
 
         <TextView
             android:layout_width="365dp"
             android:layout_height="26dp"
             android:text="Create your account and unlock endless possibilities."
-            android:textColor="#Ffa500"
-            android:textSize="15sp"
+            android:textColor="#651FFF"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.652"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.105" />
+            app:layout_constraintVertical_bias="0.07" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
             android:layout_width="370dp"
             android:layout_height="280dp"
-            android:layout_marginTop="-250dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,27 +52,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/cart_bcg"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp">
+                android:paddingHorizontal="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Log IN"
-                    android:textStyle="bold"
-                    android:textSize="25dp"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Log IN"
+                        android:textColor="#362c32"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="221dp"
-                    android:layout_height="142dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/login_img" />
+                    <ImageView
+                        android:layout_width="210dp"
+                        android:layout_height="140dp"
+                        android:layout_gravity="center"
+                        android:paddingTop="2dp"
+                        android:src="@drawable/login_img" />
 
                 </LinearLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout"
                     android:layout_width="match_parent"
@@ -91,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     android:layout_marginTop="5dp"
-                    android:backgroundTint="@color/black"
+                    android:backgroundTint="#362c32"
                     android:padding="12dp"
                     android:text="Continue"
                     android:textColor="@color/white"
@@ -100,21 +106,86 @@
 
         </androidx.cardview.widget.CardView>
 
+<!--        <ImageView-->
+<!--            android:id="@+id/imgSignIn"-->
+<!--            android:layout_width="410dp"-->
+<!--            android:layout_height="468dp"-->
+<!--            android:layout_marginStart="-100dp"-->
+<!--            android:layout_marginTop="420dp"-->
+<!--            android:layout_marginEnd="36dp"-->
+<!--            android:contentDescription="Background image"-->
+<!--            android:src="@drawable/img"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHeight_default="wrap"-->
+<!--            app:layout_constraintHorizontal_bias="0.191"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintWidth_default="wrap" />-->
+
         <ImageView
-            android:id="@+id/imgSignIn"
-            android:layout_width="468dp"
-            android:layout_height="498dp"
-            android:layout_marginStart="-100dp"
-            android:layout_marginTop="420dp"
-            android:layout_marginEnd="36dp"
-            android:contentDescription="Background image"
-            android:src="@drawable/img"
+
+            android:layout_width="442dp"
+            android:layout_height="201dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/welcome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="wrap"
-            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="wrap" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="247dp"
+            android:layout_height="111dp"
+            android:layout_marginEnd="-26dp"
+            android:src="@drawable/ribbon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:layout_width="161dp"
+            android:layout_height="25dp"
+            android:text="Number for testing"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="0.627"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.22" />
+
+        <TextView
+            android:layout_width="123dp"
+            android:layout_height="57dp"
+            android:layout_marginEnd="3dp"
+            android:text="9999999999"
+            android:textColor="@color/blue"
+            android:textSize="18.5dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="0.741"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.814" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="38dp"
+            android:src="@drawable/phone"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.312"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.602" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

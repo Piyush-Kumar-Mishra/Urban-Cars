@@ -2,6 +2,7 @@ package com.example.urbancars.adapters
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
@@ -11,16 +12,18 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.urbancars.FilteringItems
-import com.example.urbancars.databinding.IvProductsBinding
+import com.example.urbancars.databinding.IvItemsBinding
+import com.example.urbancars.models.All
 import com.example.urbancars.models.Item
+import kotlin.reflect.KFunction1
 
 class ProductAdaptor(
-    val onAddToCart: (Item, IvProductsBinding) -> Unit,
-    val onCartIncrement: (Item, IvProductsBinding) -> Unit,
-    val onCartDecrement: (Item, IvProductsBinding) -> Unit
+    val onAddToCart: (Item, IvItemsBinding) -> Unit,
+    val onCartIncrement: (Item, IvItemsBinding) -> Unit,
+    val onCartDecrement:  (Item, IvItemsBinding) -> Unit
 ) : RecyclerView.Adapter<ProductAdaptor.ProductViewHolder>(),Filterable {
 
-    class ProductViewHolder(val binding: IvProductsBinding) : ViewHolder(binding.root)
+    class ProductViewHolder(val binding: IvItemsBinding) : ViewHolder(binding.root)
 
     val diffutil = object : DiffUtil.ItemCallback<Item>() {
         override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
@@ -35,7 +38,7 @@ class ProductAdaptor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder(
-            IvProductsBinding.inflate(
+            IvItemsBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -62,6 +65,15 @@ class ProductAdaptor(
             tvProductQuantity.text = product.ItemFuelType
             tvProductPrice.text = "₹" + product.ItemPrice.toString()
 
+            if(product.itemCount!! >0){
+                tvProductCount.text = product.itemCount.toString()
+                tvAdd.visibility = View.GONE
+                llProductCount.visibility = View.VISIBLE
+            }
+            else {
+                tvAdd.visibility = View.VISIBLE
+                llProductCount.visibility = View.GONE
+            }
             tvAdd.setOnClickListener{
                 onAddToCart(product,this)
             }

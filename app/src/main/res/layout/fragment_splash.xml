@@ -34,8 +34,8 @@
             android:layout_marginEnd="7dp"
             android:padding="5dp"
             android:text="Thank you for"
-            android:textColor="@color/black"
-            android:textSize="35dp"
+            android:textColor="#362c32"
+            android:textSize="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -48,8 +48,9 @@
             android:layout_height="57dp"
             android:layout_marginStart="-10dp"
             android:padding="5dp"
+            android:alpha="0.5"
             android:text=" choosing Urban Car!"
-            android:textColor="#Ffa500"
+            android:textColor="#651FFF"
             android:textSize="35dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +61,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="285dp"
-            android:layout_height="51dp"
+            android:layout_height="71dp"
             android:layout_margin="8dp"
             android:alpha="0.8"
             android:backgroundTint="@color/white"
@@ -72,7 +73,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.56">
+            app:layout_constraintVertical_bias="0.575">
 
             <TextView
                 android:id="@+id/textView2"
