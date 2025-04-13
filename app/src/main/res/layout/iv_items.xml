@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Title Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="120dp"
                 android:layout_height="32dp"
@@ -42,7 +41,6 @@
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Tag Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="75dp"
                 android:layout_height="32dp"

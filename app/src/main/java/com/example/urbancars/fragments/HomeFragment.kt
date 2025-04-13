@@ -81,8 +81,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Start flickering animation for wheel
         startFlickeringLight(binding.wheel)
     }
 
@@ -229,9 +227,6 @@ class HomeFragment : Fragment() {
             throw ClassCastException("$context must implement CartInterface")
         }
     }
-
-
-
 
     private fun onAddToCart(item: Item, productBinding: IvItemsBinding) {
         productBinding.tvAdd.visibility = View.GONE

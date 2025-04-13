@@ -32,7 +32,6 @@ class UsersActivity : AppCompatActivity(), CartInterface {
         binding = ActivityUsersBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set the cartInterface in the singleton
         CartInterfaceHolder.cartInterface = this
 
         getItemCount()
@@ -67,7 +66,6 @@ class UsersActivity : AppCompatActivity(), CartInterface {
         }
     }
 
-    // Update the cart UI when an item is added or removed
     override fun showCartUI(itemCount: Int) {
         val previousCount = binding.tvNumberOfProductCount.text.toString().toIntOrNull() ?: 0
         val updatedCount = previousCount + itemCount
@@ -80,14 +78,14 @@ class UsersActivity : AppCompatActivity(), CartInterface {
         }
     }
 
-    // Save the updated item count to SharedPreferences
+
     override fun saveItemCount(itemCount: Int) {
         lifecycleScope.launch(Dispatchers.IO) {
             val currentCount = viewModel.cartItemCount.value ?: 0
             val newCount = currentCount + itemCount
             withContext(Dispatchers.Main) {
-                viewModel.saveItemCount(itemCount) // Save the difference
-                viewModel.fetchCartItemCount() // Update LiveData
+                viewModel.saveItemCount(itemCount)
+                viewModel.fetchCartItemCount()
             }
         }
     }

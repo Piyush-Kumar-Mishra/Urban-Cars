@@ -37,9 +37,7 @@ class SignInFragment : Fragment() {
 
     private fun changeStatusBarColor() {
         activity?.window?.apply {
-            // Set the status bar color
             statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
-            // Check if the device supports changing status bar appearance
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             }

@@ -1,7 +1,5 @@
 package com.example.urbancars
 
-//import com.phonepe.intent.sdk.api.MerchantAPI
-
 object Constants {
     val allProdductCategory = listOf(
         "Petrol",
@@ -28,9 +26,4 @@ object Constants {
 //        R.drawable.car9,
 //        R.drawable.car10,
         )
-
-//    const val Merchant_ID = "PGTESTPAYUAT"
-//    const val salt_key = "099eb0cd-02cf-4e2a-8aca-3e6c6aff0399"
-//    const val apiEndPoint = "/pg/v1/pay"
-//    var merchantTransactionId = "TXN" + System.currentTimeMillis().toString()
 }

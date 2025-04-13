@@ -45,7 +45,7 @@ class OrderAdaptor(val requireContext: Context, val OrderItemView: (OrderedItems
             tvOrderAmount.text = "₹${order.itemPrice}"
 
             when (order.itemStatus) {
-                0.toString() -> setStatus(holder, "Ordered", R.color.yellow)
+                0.toString() -> setStatus(holder, "Ordered", R.color.black)
                 1.toString() -> setStatus(holder, "Processing", R.color.blue)
                 2.toString() -> setStatus(holder, "Shipped", R.color.appbcg2)
                 3.toString() -> setStatus(holder, "Delivered", R.color.appbcg)

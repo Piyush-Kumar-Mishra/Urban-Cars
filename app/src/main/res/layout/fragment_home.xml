@@ -11,7 +11,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_145sdp"
+        android:layout_height="@dimen/_153sdp"
         android:background="@drawable/custom_appbar">
 
 
@@ -166,14 +166,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:textColor="@color/black"
-                android:text="Explore ............."
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/Bestseller"

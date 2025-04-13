@@ -91,12 +91,6 @@
                 android:layout_marginTop="3.90dp"
                 android:background="@color/text_shadow" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginTop="3.90dp"
-                android:background="@color/text_shadow"
-                />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.facebook.shimmer.ShimmerFrameLayout>
