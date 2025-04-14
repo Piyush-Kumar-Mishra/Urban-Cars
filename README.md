@@ -78,19 +78,5 @@ UrbanCars/app/google-services.json
 ### ▶️ Run the App
 - Connect your Android device or use an emulator.  
 - Click the Run button in Android Studio.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---------------------------------------------------------------
 
