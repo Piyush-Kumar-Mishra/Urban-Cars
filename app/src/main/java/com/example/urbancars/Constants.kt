@@ -10,8 +10,6 @@ object Constants {
         "Sedan",
         "Hatchback",
         "Convertible",
-//        "car9",
-//        "car10"
     )
 
     val allProductCategoryImage = arrayOf(
@@ -23,7 +21,5 @@ object Constants {
         R.drawable.car21,
         R.drawable.car22,
         R.drawable.car30
-//        R.drawable.car9,
-//        R.drawable.car10,
         )
 }

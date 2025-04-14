@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
+                android:layout_width="130dp"
                 android:layout_height="32dp"
                 android:backgroundTint="@color/appbcg"
                 app:cardElevation="0dp"
@@ -31,10 +31,10 @@
 
                 <TextView
                     android:id="@+id/tvProductTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="111dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
                     android:text="Car Details"
                     android:textColor="@color/white"
                     android:textSize="16sp"
@@ -139,14 +139,14 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="-"
-                            android:textColor="#D32F2F"
+                            android:textColor="#FFFFFF"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="30dp"
-                            android:background="#000000" />
+                            android:background="#E8DDDD" />
 
                         <TextView
                             android:id="@+id/tvProductCount"
@@ -155,13 +155,13 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="0"
-                            android:textColor="#212121"
+                            android:textColor="#FFFFFF"
                             android:textSize="16sp" />
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="30dp"
-                            android:background="#000000" />
+                            android:background="#E8DDDD" />
 
                         <TextView
                             android:id="@+id/tvIncrementCount"
@@ -170,7 +170,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="+"
-                            android:textColor="#388E3C"
+                            android:textColor="#FFFFFF"
                             android:textSize="20sp" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
