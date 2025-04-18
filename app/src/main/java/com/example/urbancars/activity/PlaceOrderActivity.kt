@@ -146,6 +146,14 @@ class PlaceOrderActivity : AppCompatActivity() {
                 )
                 Log.d("OrderDebug", "Order to save: $order")
                 viewModel.saveOrderedProducts(order)
+                
+                // Update stock and item count for each item in the order
+                for (item in cartItemsList) {
+                    val currentStock = item.itemInStock ?: 0
+                    val orderedCount = item.ItemCount ?: 0
+                    val newStock = currentStock - orderedCount
+                    viewModel.saveAfterOrdering(newStock, item)
+                }
             }
         }
     }

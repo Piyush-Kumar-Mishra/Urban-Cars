@@ -33,6 +33,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val cartItemDAO: CartItemsDAO = CartItemDB.getDBInstance(application).CartItemsDAO()
 
 
+
     // Fetch all products
     fun fetchAllProducts(): Flow<List<Item>> = callbackFlow {
         val db = FirebaseDatabase.getInstance().getReference("AllAdmin").child("Items")
@@ -54,6 +55,8 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
         db.addValueEventListener(eventListener)
         awaitClose { db.removeEventListener(eventListener) }
+
+
     }
 
     // Fetch products by category
@@ -100,10 +103,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    // Update cart product in Room database
-    suspend fun updateCartProduct(items: CartItems) {
-        cartItemDAO.updateCartProduct(items)
-    }
+//    // Update cart product in Room database
+//    suspend fun updateCartProduct(items: CartItems) {
+//        cartItemDAO.updateCartProduct(items)
+//    }
 
     // Fetch all cart items from Room database
     fun getCartItems(): LiveData<List<CartItems>> {

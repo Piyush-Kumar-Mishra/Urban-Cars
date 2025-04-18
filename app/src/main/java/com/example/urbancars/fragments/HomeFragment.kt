@@ -18,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.urbancars.CartInterface
 import com.example.urbancars.Constants
 import com.example.urbancars.R
+import com.example.urbancars.Room.CartItemDB
 import com.example.urbancars.Room.CartItems
 import com.example.urbancars.Utils
 import com.example.urbancars.adapters.AdapterAll
@@ -52,6 +53,15 @@ class HomeFragment : Fragment() {
         get()
         onProfile()
         fetchAll()
+        //to clear room db
+        lifecycleScope.launch(Dispatchers.IO) {
+            CartItemDB.getDBInstance(requireContext()).clearAllTables()
+        }
+
+//        to clear shared prefe
+        val sharedPreferences = requireContext().getSharedPreferences("Pref", Context.MODE_PRIVATE)
+        sharedPreferences.edit().clear().apply()
+
         return binding.root
     }
 
